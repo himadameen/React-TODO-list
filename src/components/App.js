@@ -68,24 +68,22 @@ function App() {
 		<div id="main">
 			<textarea value={state} id="task" onChange={handleChange}></textarea>
 			<button id="btn" onClick={adding}>Add</button>
-			<div className="editTask">
+			<div>
 				<ul>
 					{todo && todo.map((item, index) => {
 						return (
 							<li className="list" key={index + 1}>{item.task}
-								<button onClick={() => edit(item.id)} className="edit">Edit</button>
+								<button onClick={() => edit(item.id)}>Edit</button>
 								<button onClick={dele}>Delete</button>
 							</li>
 						)
 					})}
-					<div className="saveTask">
 					{save && (
 					<>
-					<textarea value={edtValue} onChange={handleEdit} ></textarea>
-					<button id="btn" onClick={saveEdit}>Save</button>
+					<textarea value={edtValue} onChange={handleEdit} className="editTask"></textarea>
+					<button id="btn" onClick={saveEdit} className="saveTask">Save</button>
 					</>
 					)}
-					</div>
 				</ul>
 			</div>
 		</div>
