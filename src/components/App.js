@@ -3,6 +3,7 @@ import {nanoid} from 'nanoid';
 import "./../styles/App.css";
 
 function App() {
+
 	const [state, setState] = useState("");
 	const [todo, setTodo] = useState([]);
 	const [edt, setEdit] = useState("");
@@ -23,13 +24,12 @@ function App() {
 			task: state,
 			status: false
 		}
-		if(state != ''){
+		if(state !== ''){
 			setTodo([...todo, obj]);
 		console.log(todo);
 		setState('');
 		console.log(state);
-		}
-		
+		}	
 	}
 
 	const edit = (data) => {
@@ -43,8 +43,8 @@ function App() {
 	}
 
 	const saveEdit = () => {
-		setSave(false);
 		if(edtValue != ""){
+			setSave(false);
 			let temp = todo.map((item) => {
 				if(item.id === edt){
 					item.task = edtValue;
@@ -53,7 +53,9 @@ function App() {
 			})
 			console.log(temp);
 			setTodo(temp);
-			// edtValue('');
+			setEdtVal('');
+			setEdit('');
+
 		}
 	}
 
@@ -65,6 +67,7 @@ function App() {
 
 
 	return (
+
 		<div id="main">
 			<textarea value={state} id="task" onChange={handleChange}></textarea>
 			<button id="btn" onClick={adding}>Add</button>
@@ -74,14 +77,15 @@ function App() {
 						return (
 							<li className="list" key={index + 1}>{item.task}
 								<button onClick={() => edit(item.id)}>Edit</button>
-								<button onClick={dele}>Delete</button>
+								<button onClick={() => dele(index)}>Delete</button>
 							</li>
 						)
 					})}
+
 					{save && (
 					<>
-					<textarea value={edtValue} onChange={handleEdit} className="editTask"></textarea>
-					<button id="btn" onClick={saveEdit} className="saveTask">Save</button>
+					<textarea value={edtValue} className="editTask" onChange={handleEdit}></textarea>
+					<button className="saveTask" onClick={saveEdit} >Save</button>
 					</>
 					)}
 				</ul>
