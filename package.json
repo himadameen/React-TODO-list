@@ -14,6 +14,7 @@
   "dependencies": {
     "css-loader": "^4.3.0",
     "jest-junit": "^11.1.0",
+    "nanoid": "^3.3.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "style-loader": "^1.2.1",
