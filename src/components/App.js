@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./../styles/App.css";
 import { useState } from "react";
@@ -91,6 +92,7 @@ function App() {
       </div>
     </div>
   );
+
 }
 export default App;
 
@@ -127,7 +129,7 @@ export default App;
 
 
 
-//************************************************************************** */ 
+//************************************************************************** */
 
 // import React, { useState } from "react";
 // import {nanoid} from 'nanoid';
@@ -160,7 +162,7 @@ export default App;
 // 		console.log(todo);
 // 		setState('');
 // 		console.log(state);
-// 		}	
+// 		}
 // 	}
 
 // 	const edit = (data) => {
